@@ -7,8 +7,14 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'helloword';
+  title = 'piano';
+  aplicarSonido(numero: number): void {
+    const audio = new Audio();
+    audio.src = '../assets/sonidos/note' + numero + '.wav';
+    audio.load();
+    audio.play();
+  }
 }
